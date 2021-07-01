@@ -1,0 +1,109 @@
+body {
+	background-color: powderblue;
+}
+
+.header {
+	background-color: lightblue;
+	text-align: center;
+	overflow: hidden;
+}
+
+.globalTimer {
+	border: 1px outset red;
+	background-color: orange;
+	text-align: center;
+	width: 100px;
+	float: left;
+	vertical-align: top;
+}
+
+.packetTimer {
+	border: 1px outset red;
+	background-color: green;
+	text-align: center;
+	width: 100px;
+	float: left;
+	vertical-align: top;
+}
+
+.yourIP {
+	border: 1px outset red;
+	background-color: pink;
+	text-align: center;
+	width: 1470px;
+	float: left;
+	vertical-align: top;
+}
+
+.score {
+	border: 1px outset red;
+	background-color: purple;
+	text-align: center;
+	width: 100px;
+	float: left;
+	vertical-align: top;
+}
+
+.lives {
+	border: 1px outset red;
+	background-color: yellow;
+	text-align: center;
+	width: 100px;
+	float: left;
+	vertical-align: top;
+}
+
+.body {
+	background-color: lightblue;
+	text-align: center;
+	overflow: hidden;
+}
+
+.queue {
+	border: 1px outset blue;
+	background-color: lightblue;
+	text-align: center;
+	overflow: hidden;
+	width: 100px;
+	height: 850px;
+	float: left;
+}
+
+.contentContainer {
+	border: 1px outset blue;
+	background-color: lightblue;
+	text-align: center;
+	overflow: hidden;
+	width: 500px;
+	height: 850px;
+	float: left;
+}
+
+.portrait {
+	height: 500px;
+	border: 1px outset blue;
+}
+
+.buttons {
+	background-color: lightblue;
+}
+
+.packet {
+	border: 1px outset blue;
+	background-color: lightblue;
+	text-align: center;
+	overflow: hidden;
+	width: 875px;
+	height: 850px;
+	float: left;
+}
+
+.rules {
+	border: 1px outset blue;
+	background-color: lightblue;
+	text-align: center;
+	overflow: hidden;
+	height: 850px;
+	width: 400px;
+	float: left;
+}
