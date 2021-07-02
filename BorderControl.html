@@ -11,7 +11,7 @@
 <body>
 	<div class="header">
 		<div class="globalTimer">
-			<h2>2:00</h2>
+			<h2>120</h2>
 		</div>
 		<div class="score">
 			<h2> <span id="score"></span> </h2>
@@ -26,14 +26,14 @@
 			<h2> <span id="lives"></span> </h2>
 		</div>
 	</div>
-	<div class="body">
+	<div class="main">
 		<div class="queue">
 			this is where <br>
 			the queue will go c:
 		</div>
 		<div class="contentContainer">
 			<div class="portrait">
-				this is where the man will go
+				<img src="img/package.png">
 			</div>
 			<div class="buttons">
 				<button type="button" onclick="check('allow')" id="accept">Accept</button> 
@@ -41,15 +41,21 @@
 			</div>
 		</div>
 		<div class="packet">
-			Source IP: <span id="sourceIP"></span> <br>
-			Destination IP: <span id="destinationIP"></span> <br>
-			Source Port: <span id="sourcePort"></span> <br>
-			Destination Port: <span id="destinationPort"></span> <br>
+			<img src="img/tag.png">
+			<div class="packageTag">
+				Source IP: <span id="sourceIP"></span> <br>
+				Destination IP: <span id="destinationIP"></span> <br>
+				Source Port: <span id="sourcePort"></span> <br>
+				Destination Port: <span id="destinationPort"></span> <br>
+			</div>
 		</div>
 		<div class="rules">
-			<h2> Rules </h2> <br>
-			Only allow packets meant for us <br>
-			<span id="rule2"></span> <span id="allowFrom"></span>
+			<img src="img/rulesParchment.png">
+			<div class="rulesText">
+				<h2> Rules </h2> <br>
+				Only allow packets meant for us <br>
+				<span id="rule2"></span> <span id="allowFrom"></span>
+			</div>
 		<div>
 	</div>
 </body>
