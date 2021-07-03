@@ -93,7 +93,7 @@ body {
 	border-top: 1px outset red;
 }
 
-#packet {
+#packetTagContainer {
 	background-color: lightblue;
 	border-right: 1px outset red;
 	text-align: center;
@@ -120,10 +120,22 @@ body {
 	color: black;
 }
 
-#packageTag {
+#packetTag {
+	left: 0%;
+	position: relative;
+    overflow: hidden;
+}
+
+#packageTagText {
 	position: absolute;
 	top: 20%;
 	right: 40%;
+	color: black;
+}
+
+
+#warningText {
+	position: relative;
 	color: black;
 }
 
@@ -143,17 +155,17 @@ body {
 }
 
 @keyframes entrance {
-  0% {left: -70%;}
-  100% {left: 0%;}
+	0% {left: -100%;}
+	100% {left: 0%;}
 }
 
 @keyframes accept {
-  0% {left: 0%;}
-  100% {left: 70%;}
+	0% {left: 0%;}
+	100% {left: 100%;}
 }
 
 @keyframes deny {
-  0% {left: 0%;}
-  100% {left: -70%;}
+	0% {left: 0%;}
+	100% {left: -100%;}
 }
 

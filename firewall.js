@@ -1,7 +1,11 @@
+let portList = [23, 80, 443, 20, 21, 42, 111];
 let invalidIPs = [];
 let validDestinationIP = randomIP();
 let validSourceIP = randomIP();
-let portList = [23, 80, 443, 20, 21];
+let validDestinationPort = get_random(portList);
+removeItem(validDestinationPort)
+let validSourcePort = get_random(portList);
+removeItem(validSourcePort);
 
 window.onload = function() {
 	document.getElementById("scoreText").innerHTML = 0;
@@ -10,12 +14,21 @@ window.onload = function() {
 	for (let i = 0; i < 32; i++) {
 		invalidIPs.push(randomIP());
 	} 
-	chooseIP();
+	chooseIP(0);
+	choosePort(0);
 	document.getElementById("portrait").className = "packageEntrance";
+	document.getElementById("packetTag").className = "packageEntrance";
 };
 
 function randomIP() {
 	return (Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255));
+}
+
+function removeItem(element) {
+	const index = portList.indexOf(element);
+	if (index > -1) {
+		portList.splice(index, 1);
+	}
 }
 
 function get_random (list) {
@@ -41,11 +54,36 @@ function chooseIP(score) {
 	}
 }
 
+function choosePort(score) {
+	if (Math.random() < 0.5) {
+		document.getElementById("sourcePort").innerHTML = validSourcePort;
+	}
+	else {
+		document.getElementById("sourcePort").innerHTML = get_random(portList)
+	}
+	if (Math.random() < 0.7) {
+		document.getElementById("destinationPort").innerHTML = validDestinationPort;
+	}
+	else {
+		document.getElementById("destinationPort").innerHTML = get_random(portList);
+	}
+	if (score == 9) {
+		document.getElementById("rule3").innerHTML = "Allow packets from the port ";
+		document.getElementById("allowFromPort").innerHTML = validSourcePort;
+	}
+	if (score == 14) {
+		document.getElementById("rule4").innerHTML = "Allow packets going to port ";
+		document.getElementById("allowToPort").innerHTML = validDestinationPort;
+	}
+}
+
 function animation(status) {
 	var className = "package" + status;
+	document.getElementById("packetTag").className = className;
 	document.getElementById("portrait").className = className;
 	setTimeout(function(){
 		document.getElementById("portrait").className = "packageEntrance";
+		document.getElementById("packetTag").className = "packageEntrance";
 	}, 450)
 }
 
@@ -83,7 +121,13 @@ function stage2check(button) {
 function check(button) {
 	var currentScore = document.getElementById("scoreText").innerHTML;
 	var newScore = document.getElementById("scoreText").innerHTML;
-	if (currentScore >= 5) {
+	if (currentScore >= 15) {
+		result = stage4check(button)
+	}
+	else if (currentScore >= 10) {
+		result = stage3check(button)
+	}
+	else if (currentScore >= 5) {
 		result = stage2check(button);
 	}
 	else {
@@ -91,12 +135,15 @@ function check(button) {
 	}
 	if (result) {
 		newScore ++;
+		document.getElementById("warningTextDisplay").innerHTML = "";
 	}
 	else {
+		document.getElementById("warningTextDisplay").innerHTML = "Double check and try again";
 		document.getElementById("livesText").innerHTML --;
 	}
 	if (currentScore != newScore) {
 		document.getElementById("scoreText").innerHTML = newScore;
 		chooseIP(currentScore);
+		choosePort(currentScore);
 	}
 }
