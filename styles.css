@@ -2,7 +2,7 @@ body {
 	background-color: powderblue;
 }
 
-.header {
+#header {
 	border: 1px outset red;
 	background-color: lightblue;
 	text-align: center;
@@ -11,7 +11,7 @@ body {
 	margin: auto;
 }
 
-.globalTimer {
+#globalTimer {
 	background-color: orange;
 	text-align: center;
 	width: 5%;
@@ -19,7 +19,7 @@ body {
 	vertical-align: top;
 }
 
-.packetTimer {
+#packetTimer {
 	background-color: green;
 	text-align: center;
 	width: 5%;
@@ -27,7 +27,7 @@ body {
 	vertical-align: top;
 }
 
-.yourIP {
+#yourIP {
 	background-color: pink;
 	text-align: center;
 	width: 80%;
@@ -35,7 +35,7 @@ body {
 	vertical-align: top;
 }
 
-.score {
+#score {
 	background-color: purple;
 	text-align: center;
 	width: 5%;
@@ -43,7 +43,7 @@ body {
 	vertical-align: top;
 }
 
-.lives {
+#lives {
 	background-color: yellow;
 	text-align: center;
 	width: 5%;
@@ -51,7 +51,7 @@ body {
 	vertical-align: top;
 }
 
-.main {
+#main {
 	border-bottom: 1px outset red;
 	border-left: 1px outset red;
 	border-right: 1px outset red;
@@ -62,7 +62,7 @@ body {
 	margin: auto;
 }
 
-.queue {
+#queue {
 	background-color: lightblue;
 	border-right: 1px outset red;
 	text-align: center;
@@ -72,7 +72,7 @@ body {
 	float: left;
 }
 
-.contentContainer {
+#contentContainer {
 	background-color: lightblue;
 	border-right: 1px outset red;
 	text-align: center;
@@ -82,18 +82,18 @@ body {
 	float: left;
 }
 
-.portrait {
-	height: 30%;
+#portrait {
+	height: 45%;
     position: relative;
     overflow: hidden;
 }
 
-.buttons {
+#buttons {
 	background-color: lightblue;
 	border-top: 1px outset red;
 }
 
-.packet {
+#packet {
 	background-color: lightblue;
 	border-right: 1px outset red;
 	text-align: center;
@@ -103,7 +103,7 @@ body {
 	float: left;
 }
 
-.rules {
+#rules {
 	background-color: lightblue;
 	text-align: center;
 	overflow: hidden;
@@ -113,16 +113,47 @@ body {
 	position: relative;
 }
 
-.rulesText {
+#rulesText {
 	position: absolute;
 	top: 3%;
 	right: 20%;
 	color: black;
 }
 
-.packageTag {
+#packageTag {
 	position: absolute;
 	top: 20%;
 	right: 40%;
 	color: black;
 }
+
+.packageEntrance {
+	animation-name: entrance;
+	animation-duration: 0.5s;	
+}
+
+.packageAccept {
+	animation-name: accept;
+	animation-duration: 0.5s;	
+}
+
+.packageDeny {
+	animation-name: deny;
+	animation-duration: 0.5s;	
+}
+
+@keyframes entrance {
+  0% {left: -70%;}
+  100% {left: 0%;}
+}
+
+@keyframes accept {
+  0% {left: 0%;}
+  100% {left: 70%;}
+}
+
+@keyframes deny {
+  0% {left: 0%;}
+  100% {left: -70%;}
+}
+

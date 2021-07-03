@@ -9,49 +9,49 @@
 </head>
 
 <body>
-	<div class="header">
-		<div class="globalTimer">
+	<div id="header">
+		<div id="globalTimer">
 			<h2>120</h2>
 		</div>
-		<div class="score">
-			<h2> <span id="score"></span> </h2>
+		<div id="score">
+			<h2> <span id="scoreText"></span> </h2>
 		</div>
-		<div class="yourIP">
-			<h2> <span id="yourIP"></span> </h2>
+		<div id="yourIP">
+			<h2> <span id="yourIPText"></span> </h2>
 		</div>
-		<div class="packetTimer">
+		<div id="packetTimer">
 			<h2> 15 </h2>
 		</div>
-		<div class="lives">
-			<h2> <span id="lives"></span> </h2>
+		<div id="lives">
+			<h2> <span id="livesText"></span> </h2>
 		</div>
 	</div>
-	<div class="main">
-		<div class="queue">
+	<div id="main">
+		<div id="queue">
 			this is where <br>
 			the queue will go c:
 		</div>
-		<div class="contentContainer">
-			<div class="portrait">
+		<div id="contentContainer">
+			<div id="portrait">
 				<img src="img/package.png">
 			</div>
-			<div class="buttons">
+			<div id="buttons">
 				<button type="button" onclick="check('allow')" id="accept">Accept</button> 
 				<button type="button" onclick="check('deny')" id="deny">Deny</button> <br>
 			</div>
 		</div>
-		<div class="packet">
+		<div id="packet">
 			<img src="img/tag.png">
-			<div class="packageTag">
+			<div id="packageTag">
 				Source IP: <span id="sourceIP"></span> <br>
 				Destination IP: <span id="destinationIP"></span> <br>
 				Source Port: <span id="sourcePort"></span> <br>
 				Destination Port: <span id="destinationPort"></span> <br>
 			</div>
 		</div>
-		<div class="rules">
+		<div id="rules">
 			<img src="img/rulesParchment.png">
-			<div class="rulesText">
+			<div id="rulesText">
 				<h2> Rules </h2> <br>
 				Only allow packets meant for us <br>
 				<span id="rule2"></span> <span id="allowFrom"></span>
