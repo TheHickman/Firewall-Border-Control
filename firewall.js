@@ -17,7 +17,10 @@ window.onload = function() {
 	chooseIP(0);
 	choosePort(0);
 	document.getElementById("portrait").className = "packageEntrance";
-	document.getElementById("packetTag").className = "packageEntrance";
+	setTimeout(function(){
+		document.getElementById("packetTag").className = "packageEntrance";
+		document.getElementById("packetTag").style.left = "0%";
+	}, 450)
 };
 
 function randomIP() {
@@ -79,11 +82,17 @@ function choosePort(score) {
 
 function animation(status) {
 	var className = "package" + status;
-	document.getElementById("packetTag").className = className;
-	document.getElementById("portrait").className = className;
+	document.getElementById("packetTag").className = "packageDeny";
+	document.getElementById("packetTag").style.left = "-95%";
 	setTimeout(function(){
-		document.getElementById("portrait").className = "packageEntrance";
-		document.getElementById("packetTag").className = "packageEntrance";
+		document.getElementById("portrait").className = className;
+		setTimeout(function(){
+			document.getElementById("portrait").className = "packageEntrance";
+			setTimeout(function(){
+				document.getElementById("packetTag").className = "packageEntrance";
+				document.getElementById("packetTag").style.left = "0%";
+			}, 450)
+		}, 450)
 	}, 450)
 }
 

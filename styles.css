@@ -70,6 +70,7 @@ body {
 	width: 5%;
 	height: 80%;
 	float: left;
+	background-image: url("belt.png");
 }
 
 #contentContainer {
@@ -121,7 +122,7 @@ body {
 }
 
 #packetTag {
-	left: 0%;
+	left: -95%;
 	position: relative;
     overflow: hidden;
 }
