@@ -70,7 +70,10 @@ body {
 	width: 5%;
 	height: 80%;
 	float: left;
-	background-image: url("belt.png");
+	background-image: url('img/belt.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+    position: relative;
 }
 
 #contentContainer {
@@ -142,17 +145,17 @@ body {
 
 .packageEntrance {
 	animation-name: entrance;
-	animation-duration: 0.5s;	
+	animation-duration: 0.4s;	
 }
 
 .packageAccept {
 	animation-name: accept;
-	animation-duration: 0.5s;	
+	animation-duration: 0.4s;	
 }
 
 .packageDeny {
 	animation-name: deny;
-	animation-duration: 0.5s;	
+	animation-duration: 0.4s;	
 }
 
 @keyframes entrance {

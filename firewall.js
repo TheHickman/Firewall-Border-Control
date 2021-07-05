@@ -20,7 +20,7 @@ window.onload = function() {
 	setTimeout(function(){
 		document.getElementById("packetTag").className = "packageEntrance";
 		document.getElementById("packetTag").style.left = "0%";
-	}, 450)
+	}, 350)
 };
 
 function randomIP() {
@@ -91,9 +91,9 @@ function animation(status) {
 			setTimeout(function(){
 				document.getElementById("packetTag").className = "packageEntrance";
 				document.getElementById("packetTag").style.left = "0%";
-			}, 450)
-		}, 450)
-	}, 450)
+			}, 350)
+		}, 350)
+	}, 350)
 }
 
 function stage1check(button) {
@@ -119,6 +119,41 @@ function stage2check(button) {
 		return true;
 	}
 	else if ((destination != validDestinationIP || source != validSourceIP) && button == 'deny') {
+		animation("Deny")
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+function stage3check(button) {
+	var destinationIP = document.getElementById("destinationIP").innerHTML;
+	var sourceIP = document.getElementById("sourceIP").innerHTML;
+	var sourcePort = document.getElementById("sourcePort").innerHTML;
+	if (destinationIP == validDestinationIP && sourceIP == validSourceIP && sourcePort == validSourcePort && button == 'allow') {
+		animation("Accept")
+		return true;
+	}
+	else if ((destinationIP != validDestinationIP || sourceIP != validSourceIP || sourcePort != validSourcePort) && button == 'deny') {
+		animation("Deny")
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+function stage4check(button) {
+	var destinationIP = document.getElementById("destinationIP").innerHTML;
+	var sourceIP = document.getElementById("sourceIP").innerHTML;
+	var sourcePort = document.getElementById("sourcePort").innerHTML;
+	var destinationPort = document.getElementById("destinationPort").innerHTML;
+	if (destinationIP == validDestinationIP && sourceIP == validSourceIP && sourcePort == validSourcePort && destinationPort == validDestinationPort && button == 'allow') {
+		animation("Accept")
+		return true;
+	}
+	else if ((destinationIP != validDestinationIP || sourceIP != validSourceIP || sourcePort != validSourcePort || destinationPort != validDestinationPort) && button == 'deny') {
 		animation("Deny")
 		return true;
 	}
