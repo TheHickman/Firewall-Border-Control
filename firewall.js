@@ -1,17 +1,17 @@
-let portList = [23, 80, 443, 20, 21, 42, 111];
-let invalidIPs = [];
-let validDestinationIP = randomIP();
-let validSourceIP = randomIP();
-let validDestinationPort = get_random(portList);
+var portList = [23, 80, 443, 20, 21, 42, 111];
+var invalidIPs = [];
+var validDestinationIP = randomIP();
+var validSourceIP = randomIP();
+var validDestinationPort = get_random(portList);
 removeItem(validDestinationPort)
-let validSourcePort = get_random(portList);
+var validSourcePort = get_random(portList);
 removeItem(validSourcePort);
 
 window.onload = function() {
 	document.getElementById("scoreText").innerHTML = 0;
 	document.getElementById("livesText").innerHTML = 3;
 	document.getElementById("yourIPText").innerHTML = validDestinationIP;
-	for (let i = 0; i < 32; i++) {
+	for (var i = 0; i < 32; i++) {
 		invalidIPs.push(randomIP());
 	} 
 	chooseIP(0);
@@ -106,8 +106,15 @@ function stage1check(button) {
 		animation("Deny")
 		return true
 	}
+	else if (button == 'allow'){
+		document.getElementById("warningTextDisplay").innerHTML = "Oh no! Something was fishy about that packet!";
+		animation("Accept");
+		return false;
+	}
 	else {
-		return false
+		document.getElementById("warningTextDisplay").innerHTML = "Oh no! That packet was valid!";
+		animation('Deny');
+		return false;
 	}
 }
 
@@ -122,7 +129,14 @@ function stage2check(button) {
 		animation("Deny")
 		return true;
 	}
+	else if (button == 'allow'){
+		document.getElementById("warningTextDisplay").innerHTML = "Oh no! Something was fishy about that packet!";
+		animation("Accept");
+		return false;
+	}
 	else {
+		document.getElementById("warningTextDisplay").innerHTML = "Oh no! That packet was valid!";
+		animation('Deny');
 		return false;
 	}
 }
@@ -139,7 +153,14 @@ function stage3check(button) {
 		animation("Deny")
 		return true;
 	}
+	else if (button == 'allow'){
+		document.getElementById("warningTextDisplay").innerHTML = "Oh no! Something was fishy about that packet!";
+		animation("Accept");
+		return false;
+	}
 	else {
+		document.getElementById("warningTextDisplay").innerHTML = "Oh no! That packet was valid!";
+		animation('Deny');
 		return false;
 	}
 }
@@ -157,7 +178,14 @@ function stage4check(button) {
 		animation("Deny")
 		return true;
 	}
+	else if (button == 'allow'){
+		document.getElementById("warningTextDisplay").innerHTML = "Oh no! Something was fishy about that packet!";
+		animation("Accept");
+		return false;
+	}
 	else {
+		document.getElementById("warningTextDisplay").innerHTML = "Oh no! That packet was valid!";
+		animation('Deny');
 		return false;
 	}
 }
@@ -182,7 +210,6 @@ function check(button) {
 		document.getElementById("warningTextDisplay").innerHTML = "";
 	}
 	else {
-		document.getElementById("warningTextDisplay").innerHTML = "Double check and try again";
 		document.getElementById("livesText").innerHTML --;
 	}
 	if (currentScore != newScore) {

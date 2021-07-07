@@ -62,19 +62,6 @@ body {
 	margin: auto;
 }
 
-#queue {
-	background-color: lightblue;
-	border-right: 1px outset red;
-	text-align: center;
-	overflow: hidden;
-	width: 5%;
-	height: 80%;
-	float: left;
-	background-image: url('img/belt.png');
-    background-repeat: no-repeat;
-    background-position: center; 
-    position: relative;
-}
 
 #contentContainer {
 	background-color: lightblue;
@@ -135,6 +122,7 @@ body {
 	top: 20%;
 	right: 40%;
 	color: black;
+	text-align: left;
 }
 
 
