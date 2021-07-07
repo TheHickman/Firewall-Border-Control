@@ -8,12 +8,11 @@ var validSourcePort = get_random(portList);
 removeItem(validSourcePort);
 
 window.onload = function() {
-	document.getElementById("scoreText").innerHTML = 0;
-	document.getElementById("livesText").innerHTML = 3;
 	document.getElementById("yourIPText").innerHTML = validDestinationIP;
 	for (var i = 0; i < 32; i++) {
 		invalidIPs.push(randomIP());
 	} 
+	document.getElementById("healthBarText").innerHTML = 0;
 	chooseIP(0);
 	choosePort(0);
 	document.getElementById("portrait").className = "packageEntrance";
@@ -191,8 +190,7 @@ function stage4check(button) {
 }
 
 function check(button) {
-	var currentScore = document.getElementById("scoreText").innerHTML;
-	var newScore = document.getElementById("scoreText").innerHTML;
+	currentScore = document.getElementById("healthBarText").innerHTML
 	if (currentScore >= 15) {
 		result = stage4check(button)
 	}
@@ -206,15 +204,12 @@ function check(button) {
 		result = stage1check(button);
 	}
 	if (result) {
-		newScore ++;
+		document.getElementById("healthBarText").innerHTML ++;
 		document.getElementById("warningTextDisplay").innerHTML = "";
 	}
 	else {
-		document.getElementById("livesText").innerHTML --;
+		document.getElementById("healthBarText").innerHTML --;
 	}
-	if (currentScore != newScore) {
-		document.getElementById("scoreText").innerHTML = newScore;
-		chooseIP(currentScore);
-		choosePort(currentScore);
-	}
+	chooseIP(currentScore);
+	choosePort(currentScore);
 }
