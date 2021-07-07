@@ -8,6 +8,7 @@ body {
 	text-align: center;
 	overflow: hidden;
 	width: 90%;
+	height: 7%;
 	margin: auto;
 }
 
@@ -37,6 +38,18 @@ body {
 	overflow: hidden;
 	width: 90%;
 	margin: auto;
+	background-color: lime;
+	height: 7%
+}
+
+.barSegment {
+	background-color: gold;
+	text-align: center;
+	width: 5%;
+	float: left;
+	vertical-align: top;
+	border-right: 1px outset red;
+	height: 100%
 }
 
 
