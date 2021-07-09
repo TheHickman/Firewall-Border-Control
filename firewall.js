@@ -189,6 +189,19 @@ function stage4check(button) {
 	}
 }
 
+function healthChange(result) {
+	var segmentId = ""
+	if (!result) {
+		for (var i = 18; i > -1; i--) {
+			segmentId = "bar" + i;
+			if (document.getElementById(segmentId).style.backgroundColor.length == 0 || document.getElementById(segmentId).style.backgroundColor == "gold") {
+				document.getElementById(segmentId).style.backgroundColor = "red";
+				break;
+			}
+		} 
+	}
+}
+
 function check(button) {
 	currentScore = document.getElementById("healthBarText").innerHTML
 	if (currentScore >= 15) {
@@ -204,11 +217,11 @@ function check(button) {
 		result = stage1check(button);
 	}
 	if (result) {
-		document.getElementById("healthBarText").innerHTML ++;
 		document.getElementById("warningTextDisplay").innerHTML = "";
+		healthChange(result);
 	}
 	else {
-		document.getElementById("healthBarText").innerHTML --;
+		healthChange(result);
 	}
 	chooseIP(currentScore);
 	choosePort(currentScore);

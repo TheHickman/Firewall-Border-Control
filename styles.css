@@ -3,11 +3,11 @@ body {
 }
 
 #header {
-	border: 1px outset red;
+	border: 0.1vw outset red;
 	background-color: lightblue;
 	text-align: center;
 	overflow: hidden;
-	width: 90%;
+	width: 90vw;
 	height: 7%;
 	margin: auto;
 }
@@ -15,7 +15,7 @@ body {
 #globalTimer {
 	background-color: orange;
 	text-align: center;
-	width: 10%;
+	width: 5%;
 	float: left;
 	vertical-align: top;
 }
@@ -24,19 +24,19 @@ body {
 #yourIP {
 	background-color: pink;
 	text-align: center;
-	width: 90%;
+	width: 95%;
 	float: left;
 	vertical-align: top;
 }
 
 #healthBar {
-	border-left: 1px outset red;
-	border-right: 1px outset red;
-	border-bottom: 1px outset red;
+	border-left: 0.1vw outset red;
+	border-right: 0.1vw outset red;
+	border-bottom: 0.1vw outset red;
 	background-color: lightblue;
 	text-align: center;
 	overflow: hidden;
-	width: 90%;
+	width: 90vw;
 	margin: auto;
 	background-color: lime;
 	height: 7%
@@ -48,26 +48,26 @@ body {
 	width: 5%;
 	float: left;
 	vertical-align: top;
-	border-right: 1px outset red;
+	border-right: 0.1vw outset red;
 	height: 100%
 }
 
 
 #main {
-	border-bottom: 1px outset red;
-	border-left: 1px outset red;
-	border-right: 1px outset red;
+	border-bottom: 0.1vw outset red;
+	border-left: 0.1vw outset red;
+	border-right: 0.1vw outset red;
 	background-color: lightblue;
 	text-align: center;
 	overflow: hidden;
-	width:90%;
+	width: 90vw;
 	margin: auto;
 }
 
 
 #contentContainer {
 	background-color: lightblue;
-	border-right: 1px outset red;
+	border-right: 0.1vw outset red;
 	text-align: center;
 	overflow: hidden;
 	width: 35%;
@@ -83,12 +83,12 @@ body {
 
 #buttons {
 	background-color: lightblue;
-	border-top: 1px outset red;
+	border-top: 0.1vw outset red;
 }
 
 #packetTagContainer {
 	background-color: lightblue;
-	border-right: 1px outset red;
+	border-right: 0.1vw outset red;
 	text-align: center;
 	overflow: hidden;
 	width: 35%;
