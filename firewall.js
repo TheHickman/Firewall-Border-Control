@@ -1,4 +1,5 @@
 var portList = [23, 80, 443, 20, 21, 42, 111];
+var barLength = 24;
 var invalidIPs = [];
 var validDestinationIP = randomIP();
 var validSourceIP = randomIP();
@@ -8,11 +9,20 @@ var validSourcePort = get_random(portList);
 removeItem(validSourcePort);
 
 window.onload = function() {
+	for (var i = 0; i <= barLength; i++) {
+		segmentId = "bar" + i;
+		if (i < barLength/2) {
+			document.getElementById(segmentId).style.backgroundColor = "gold";
+		}
+		else {
+			document.getElementById(segmentId).style.backgroundColor = "red";
+		}
+	}
+	document.getElementById("healthBarText").innerHTML = 0;
 	document.getElementById("yourIPText").innerHTML = validDestinationIP;
 	for (var i = 0; i < 32; i++) {
 		invalidIPs.push(randomIP());
 	} 
-	document.getElementById("healthBarText").innerHTML = 0;
 	chooseIP(0);
 	choosePort(0);
 	document.getElementById("portrait").className = "packageEntrance";
@@ -50,7 +60,7 @@ function chooseIP(score) {
 	else {
 		document.getElementById("sourceIP").innerHTML = get_random(invalidIPs);
 	}
-	if (score == 4) {
+	if (score == 5) {
 		document.getElementById("rule2").innerHTML = "Allow packets from ";
 		document.getElementById("allowFrom").innerHTML = validSourceIP;
 	}
@@ -69,11 +79,11 @@ function choosePort(score) {
 	else {
 		document.getElementById("destinationPort").innerHTML = get_random(portList);
 	}
-	if (score == 9) {
+	if (score == 10) {
 		document.getElementById("rule3").innerHTML = "Allow packets from the port ";
 		document.getElementById("allowFromPort").innerHTML = validSourcePort;
 	}
-	if (score == 14) {
+	if (score == 15) {
 		document.getElementById("rule4").innerHTML = "Allow packets going to port ";
 		document.getElementById("allowToPort").innerHTML = validDestinationPort;
 	}
@@ -192,13 +202,22 @@ function stage4check(button) {
 function healthChange(result) {
 	var segmentId = ""
 	if (!result) {
-		for (var i = 18; i > -1; i--) {
+		for (var i = barLength; i > -1; i--) {
 			segmentId = "bar" + i;
 			if (document.getElementById(segmentId).style.backgroundColor.length == 0 || document.getElementById(segmentId).style.backgroundColor == "gold") {
 				document.getElementById(segmentId).style.backgroundColor = "red";
 				break;
 			}
 		} 
+	}
+	else {
+		for (var i = 0; i <= barLength; i++) {
+			segmentId = "bar" + i;
+			if (document.getElementById(segmentId).style.backgroundColor.length == 0 || document.getElementById(segmentId).style.backgroundColor == "red") {
+				document.getElementById(segmentId).style.backgroundColor = "gold";
+				break;
+			}
+		}
 	}
 }
 
@@ -218,6 +237,7 @@ function check(button) {
 	}
 	if (result) {
 		document.getElementById("warningTextDisplay").innerHTML = "";
+		currentScore ++;
 		healthChange(result);
 	}
 	else {
@@ -225,4 +245,5 @@ function check(button) {
 	}
 	chooseIP(currentScore);
 	choosePort(currentScore);
+	document.getElementById("healthBarText").innerHTML = currentScore;
 }

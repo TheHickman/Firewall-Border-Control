@@ -43,15 +43,13 @@ body {
 }
 
 .barSegment {
-	background-color: gold;
 	text-align: center;
-	width: 5%;
+	width: 4%;
 	float: left;
 	vertical-align: top;
 	border-right: 0.1vw outset red;
 	height: 100%
 }
-
 
 #main {
 	border-bottom: 0.1vw outset red;
