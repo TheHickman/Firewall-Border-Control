@@ -2,6 +2,12 @@ body {
 	background-color: powderblue;
 }
 
+:root {
+    --my-start-width: 50%;
+    --my-end-width: 55%;
+}
+
+
 #header {
 	border: 0.1vw outset red;
 	background-color: lightblue;
@@ -29,26 +35,25 @@ body {
 	vertical-align: top;
 }
 
-#healthBar {
+#healthBarContainer {
 	border-left: 0.1vw outset red;
 	border-right: 0.1vw outset red;
 	border-bottom: 0.1vw outset red;
-	background-color: lightblue;
+	background-color: black;
 	text-align: center;
 	overflow: hidden;
 	width: 90vw;
 	margin: auto;
-	background-color: lime;
 	height: 7%
 }
 
-.barSegment {
+#healthBar {
 	text-align: center;
-	width: 4%;
+	overflow: hidden;
+	width: 50%;
+	margin: auto;
+	background-color: lime;
 	float: left;
-	vertical-align: top;
-	border-right: 0.1vw outset red;
-	height: 100%
 }
 
 #main {
@@ -146,6 +151,12 @@ body {
 	animation-duration: 0.4s;	
 }
 
+.healthAlter {
+	animation-name: change;
+	animation-duration: 0.4s;	
+}
+
+
 @keyframes entrance {
 	0% {left: -100%;}
 	100% {left: 0%;}
@@ -160,4 +171,10 @@ body {
 	0% {left: 0%;}
 	100% {left: -100%;}
 }
+
+@keyframes change {
+    0% { width: var(--my-start-width); }
+    100% { width: var(--my-end-width); }
+}
+
 

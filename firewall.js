@@ -9,15 +9,6 @@ var validSourcePort = get_random(portList);
 removeItem(validSourcePort);
 
 window.onload = function() {
-	for (var i = 0; i <= barLength; i++) {
-		segmentId = "bar" + i;
-		if (i < barLength/2) {
-			document.getElementById(segmentId).style.backgroundColor = "gold";
-		}
-		else {
-			document.getElementById(segmentId).style.backgroundColor = "red";
-		}
-	}
 	document.getElementById("healthBarText").innerHTML = 0;
 	document.getElementById("yourIPText").innerHTML = validDestinationIP;
 	for (var i = 0; i < 32; i++) {
@@ -200,25 +191,22 @@ function stage4check(button) {
 }
 
 function healthChange(result) {
-	var segmentId = ""
-	if (!result) {
-		for (var i = barLength; i > -1; i--) {
-			segmentId = "bar" + i;
-			if (document.getElementById(segmentId).style.backgroundColor.length == 0 || document.getElementById(segmentId).style.backgroundColor == "gold") {
-				document.getElementById(segmentId).style.backgroundColor = "red";
-				break;
-			}
-		} 
+	var start = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--my-start-width').slice(0, -1));
+	if (result) {
+		var end_width = start + 5;
+		document.documentElement.style.setProperty('--my-end-width', end_width + "%");
+		document.getElementById("healthBar").className = "healthAlter";
 	}
 	else {
-		for (var i = 0; i <= barLength; i++) {
-			segmentId = "bar" + i;
-			if (document.getElementById(segmentId).style.backgroundColor.length == 0 || document.getElementById(segmentId).style.backgroundColor == "red") {
-				document.getElementById(segmentId).style.backgroundColor = "gold";
-				break;
-			}
-		}
+		var end_width = start - 5;
+		document.documentElement.style.setProperty('--my-end-width', end_width + "%");
+		document.getElementById("healthBar").className = "healthAlter";
 	}
+	setTimeout(function(){
+		document.getElementById("healthBar").className = "";
+		document.getElementById("healthBar").style.width = end_width + "%";
+		document.documentElement.style.setProperty('--my-start-width', end_width + "%");
+	}, 350)
 }
 
 function check(button) {
