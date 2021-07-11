@@ -213,12 +213,12 @@ function stage4check(button) {
 function healthChange(result) {
 	var start = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--my-start-width').slice(0, -1));
 	if (result) {
-		var end_width = start + 5;
+		var end_width = start + 10;
 		document.documentElement.style.setProperty('--my-end-width', end_width + "%");
 		document.getElementById("healthBar").className = "healthAlter";
 	}
 	else {
-		var end_width = start - 5;
+		var end_width = start - 10;
 		document.documentElement.style.setProperty('--my-end-width', end_width + "%");
 		document.getElementById("healthBar").className = "healthAlter";
 	}
@@ -232,9 +232,16 @@ function healthChange(result) {
 		document.getElementById("healthBar").style.backgroundColor = "lime";
 	}
 	setTimeout(function(){
-		document.getElementById("healthBar").className = "";
-		document.getElementById("healthBar").style.width = end_width + "%";
-		document.documentElement.style.setProperty('--my-start-width', end_width + "%");
+		if (end_width > 0) {
+			document.getElementById("healthBar").className = "";
+			document.getElementById("healthBar").style.width = end_width + "%";
+			document.documentElement.style.setProperty('--my-start-width', end_width + "%");
+		}
+		else {
+			document.getElementById("healthBar").style.width = end_width + "%";
+			document.getElementById("healthBarText").innerHTML = "";
+			gameOver();
+		}
 	}, 350)
 }
 
