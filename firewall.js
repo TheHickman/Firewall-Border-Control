@@ -10,6 +10,7 @@ removeItem(validSourcePort);
 
 window.onload = function() {
 	document.getElementById("healthBarText").innerHTML = 0;
+	document.getElementById("timer").innerHTML = 120;
 	document.getElementById("yourIPText").innerHTML = validDestinationIP;
 	for (var i = 0; i < 32; i++) {
 		invalidIPs.push(randomIP());
@@ -21,7 +22,17 @@ window.onload = function() {
 		document.getElementById("packetTag").className = "packageEntrance";
 		document.getElementById("packetTag").style.left = "0%";
 	}, 350)
+	timer();
 };
+
+function timer(){
+	setTimeout(function() {
+		if (document.getElementById("timer").innerHTML > 0) {
+			timer();
+		}
+	}, 1000)
+	document.getElementById("timer").innerHTML --;
+}
 
 function randomIP() {
 	return (Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255));
