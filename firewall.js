@@ -10,7 +10,7 @@ removeItem(validSourcePort);
 
 window.onload = function() {
 	document.getElementById("healthBarText").innerHTML = 0;
-	document.getElementById("timer").innerHTML = 120;
+	document.getElementById("timer").innerHTML = 121;
 	document.getElementById("yourIPText").innerHTML = validDestinationIP;
 	for (var i = 0; i < 32; i++) {
 		invalidIPs.push(randomIP());
@@ -25,10 +25,19 @@ window.onload = function() {
 	timer();
 };
 
+function gameOver() {
+	document.getElementById("accept").disabled = true;
+	document.getElementById("deny").disabled = true;
+	document.getElementById("warningTextDisplay").innerHTML = "GAME OVER";
+}
+
 function timer(){
 	setTimeout(function() {
 		if (document.getElementById("timer").innerHTML > 0) {
 			timer();
+		}
+		else {
+			gameOver();
 		}
 	}, 1000)
 	document.getElementById("timer").innerHTML --;
