@@ -202,6 +202,15 @@ function healthChange(result) {
 		document.documentElement.style.setProperty('--my-end-width', end_width + "%");
 		document.getElementById("healthBar").className = "healthAlter";
 	}
+	if (end_width <= 15) {
+		document.getElementById("healthBar").style.backgroundColor = "red";
+	}
+	else if (end_width <= 45) {
+		document.getElementById("healthBar").style.backgroundColor = "yellow";
+	}
+	else {
+		document.getElementById("healthBar").style.backgroundColor = "lime";
+	}
 	setTimeout(function(){
 		document.getElementById("healthBar").className = "";
 		document.getElementById("healthBar").style.width = end_width + "%";
