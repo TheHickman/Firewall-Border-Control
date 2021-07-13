@@ -1,5 +1,5 @@
 var portList = [23, 80, 443, 20, 21, 42, 111];
-var barLength = 24;
+var amountOfTime = 12;
 var invalidIPs = [];
 var validDestinationIP = randomIP();
 var validSourceIP = randomIP();
@@ -10,7 +10,7 @@ removeItem(validSourcePort);
 
 window.onload = function() {
 	document.getElementById("healthBarText").innerHTML = 0;
-	document.getElementById("timer").innerHTML = 121;
+	document.getElementById("timer").innerHTML = amountOfTime;
 	document.getElementById("yourIPText").innerHTML = validDestinationIP;
 	for (var i = 0; i < 32; i++) {
 		invalidIPs.push(randomIP());
@@ -26,14 +26,24 @@ window.onload = function() {
 };
 
 function gameOver() {
+	var timeLeft = document.getElementById("timer").innerHTML;
+	var timeTaken = amountOfTime - timeLeft - 1;
+	var packetsPerSecond = 1488095;
+	var realFireWall = packetsPerSecond * timeTaken;
+	var score = document.getElementById("healthBarText").innerHTML;
+	var firewallRate = parseInt(score)/packetsPerSecond;
 	document.getElementById("accept").disabled = true;
 	document.getElementById("deny").disabled = true;
-	document.getElementById("warningTextDisplay").innerHTML = "GAME OVER";
+	document.getElementById("warningTextDisplay").innerHTML = "GAME OVER <br> You took " + timeTaken + " seconds to process " + score + " packets";
+	document.getElementById("packetsPerSecondText").innerHTML = "A real firewall would have processed " + realFireWall + " packets in that time!";
+	if (score > 1) {
+		document.getElementById("realRateText").innerHTML = "A real firewall would have taken " + String(firewallRate).substring(0, 10) + " seconds to process " + score + " packets!";
+	}
 }
 
 function timer(){
 	setTimeout(function() {
-		if (document.getElementById("timer").innerHTML > 0) {
+		if (document.getElementById("timer").innerHTML > 0 && document.getElementById("accept").disabled == false) {
 			timer();
 		}
 		else {
