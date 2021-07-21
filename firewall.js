@@ -107,10 +107,13 @@ function choosePort(score) {
 }
 
 function animation(status) {
+	var picList = ["BoxA", "BoxB", "BoxC", "BoxD"];
+	var imgSource = get_random(picList);
 	var className = "package" + status;
 	setTimeout(function(){
 		document.getElementById("portrait").className = className;
 		setTimeout(function(){
+			document.getElementById("box").src = "img/" + imgSource + ".png";
 			document.getElementById("portrait").className = "packageEntrance";
 		}, 350)
 	}, 350)
