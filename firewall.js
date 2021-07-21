@@ -1,5 +1,5 @@
 var portList = [23, 80, 443, 20, 21, 42, 111];
-var amountOfTime = 12;
+var amountOfTime = 121;
 var invalidIPs = [];
 var validDestinationIP = randomIP();
 var validSourceIP = randomIP();
@@ -18,10 +18,6 @@ window.onload = function() {
 	chooseIP(0);
 	choosePort(0);
 	document.getElementById("portrait").className = "packageEntrance";
-	setTimeout(function(){
-		document.getElementById("packetTag").className = "packageEntrance";
-		document.getElementById("packetTag").style.left = "0%";
-	}, 350)
 	timer();
 };
 
@@ -112,16 +108,10 @@ function choosePort(score) {
 
 function animation(status) {
 	var className = "package" + status;
-	document.getElementById("packetTag").className = "packageDeny";
-	document.getElementById("packetTag").style.left = "-95%";
 	setTimeout(function(){
 		document.getElementById("portrait").className = className;
 		setTimeout(function(){
 			document.getElementById("portrait").className = "packageEntrance";
-			setTimeout(function(){
-				document.getElementById("packetTag").className = "packageEntrance";
-				document.getElementById("packetTag").style.left = "0%";
-			}, 350)
 		}, 350)
 	}, 350)
 }
@@ -277,7 +267,9 @@ function check(button) {
 	else {
 		healthChange(result);
 	}
-	chooseIP(currentScore);
-	choosePort(currentScore);
+	setTimeout(function() {
+		chooseIP(currentScore);
+		choosePort(currentScore);
+	}, 350)
 	document.getElementById("healthBarText").innerHTML = currentScore;
 }

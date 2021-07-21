@@ -77,13 +77,13 @@ img{
 	border-right: 0.1vw outset red;
 	text-align: center;
 	overflow: hidden;
-	width: 35%;
+	width: 75%;
 	height: 80%;
 	float: left;
 }
 
 #portrait {
-	height: 45%;
+	height: 80%;
     position: relative;
     overflow: hidden;
 }
@@ -91,16 +91,6 @@ img{
 #buttons {
 	background-color: lightblue;
 	border-top: 0.1vw outset red;
-}
-
-#packetTagContainer {
-	background-color: lightblue;
-	border-right: 0.1vw outset red;
-	text-align: center;
-	overflow: hidden;
-	width: 35%;
-	height: 80%;
-	float: left;
 }
 
 #rules {
@@ -120,18 +110,15 @@ img{
 	color: black;
 }
 
-#packetTag {
-	left: -95%;
-	position: relative;
-    overflow: hidden;
-}
-
 #packageTagText {
 	position: absolute;
-	top: 20%;
-	right: 40%;
+	top: 40%;
+	right: 47%;
 	color: black;
 	text-align: left;
+	background-color: white;
+	padding: 1%;
+	border: 0.1vw outset black;
 }
 
 
