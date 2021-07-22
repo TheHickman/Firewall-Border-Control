@@ -10,44 +10,19 @@ removeItem(validSourcePort);
 
 window.onload = function() {
 	document.getElementById("healthBarText").innerHTML = 0;
-	document.getElementById("timer").innerHTML = amountOfTime;
-	document.getElementById("yourIPText").innerHTML = validDestinationIP;
+	document.getElementById("yourIPText").innerHTML = "Your IP <br> " + validDestinationIP;
 	for (var i = 0; i < 32; i++) {
 		invalidIPs.push(randomIP());
 	} 
 	chooseIP(0);
 	choosePort(0);
 	document.getElementById("portrait").className = "packageEntrance";
-	timer();
 };
 
 function gameOver() {
-	var timeLeft = document.getElementById("timer").innerHTML;
-	var timeTaken = amountOfTime - timeLeft - 1;
-	var packetsPerSecond = 1488095;
-	var realFireWall = packetsPerSecond * timeTaken;
-	var score = document.getElementById("healthBarText").innerHTML;
-	var firewallRate = parseInt(score)/packetsPerSecond;
-	document.getElementById("accept").disabled = true;
-	document.getElementById("deny").disabled = true;
-	document.getElementById("warningTextDisplay").innerHTML = "GAME OVER <br> You took " + timeTaken + " seconds to process " + score + " packets";
-	document.getElementById("packetsPerSecondText").innerHTML = "A real firewall would have processed " + realFireWall + " packets in that time!";
-	if (score > 1) {
-		document.getElementById("realRateText").innerHTML = "A real firewall would have taken " + String(firewallRate).substring(0, 10) + " seconds to process " + score + " packets!";
-	}
+	document.getElementById("warningTextDisplay").innerHTML = "GAME OVER"
 }
 
-function timer(){
-	setTimeout(function() {
-		if (document.getElementById("timer").innerHTML > 0 && document.getElementById("accept").disabled == false) {
-			timer();
-		}
-		else {
-			gameOver();
-		}
-	}, 1000)
-	document.getElementById("timer").innerHTML --;
-}
 
 function randomIP() {
 	return (Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255));

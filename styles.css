@@ -1,10 +1,11 @@
 body {
 	background-color: powderblue;
+	font-family: monospace;
 }
 
 :root {
-    --my-start-width: 50%;
-    --my-end-width: 55%;
+    --my-start-width: 100%;
+    --my-end-width: 95%;
 }
 
 img{
@@ -18,23 +19,14 @@ img{
 	text-align: center;
 	overflow: hidden;
 	width: 90vw;
-	height: 7%;
+	height: 4vw;
 	margin: auto;
 }
-
-#globalTimer {
-	background-color: orange;
-	text-align: center;
-	width: 5%;
-	float: left;
-	vertical-align: top;
-}
-
 
 #yourIP {
 	background-color: pink;
 	text-align: center;
-	width: 95%;
+	width: 100%;
 	float: left;
 	vertical-align: top;
 }
@@ -48,13 +40,12 @@ img{
 	overflow: hidden;
 	width: 90vw;
 	margin: auto;
-	height: 7%
 }
 
 #healthBar {
 	text-align: center;
 	overflow: hidden;
-	width: 50%;
+	width: 100%;
 	margin: auto;
 	background-color: lime;
 	float: left;
@@ -65,7 +56,6 @@ img{
 	border-left: 0.1vw outset red;
 	border-right: 0.1vw outset red;
 	background-color: lightblue;
-	text-align: center;
 	overflow: hidden;
 	width: 90vw;
 	margin: auto;
@@ -94,20 +84,17 @@ img{
 }
 
 #rules {
-	background-color: lightblue;
-	text-align: center;
+	background-color: black;
 	overflow: hidden;
 	height: 80%;
-	width: 24%;
+	width: 24.93%;
 	float: left;
 	position: relative;
 }
 
 #rulesText {
 	position: absolute;
-	top: 3%;
-	right: 20%;
-	color: black;
+	color: lime;
 }
 
 #packageTagText {
