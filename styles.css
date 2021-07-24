@@ -45,7 +45,6 @@ img{
 #healthBar {
 	text-align: center;
 	overflow: hidden;
-	width: 100%;
 	margin: auto;
 	background-color: lime;
 	float: left;

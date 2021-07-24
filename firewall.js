@@ -10,12 +10,14 @@ removeItem(validSourcePort);
 
 window.onload = function() {
 	document.getElementById("healthBarText").innerHTML = 0;
+	document.getElementById("healthBar").style.width = "100%";
 	document.getElementById("yourIPText").innerHTML = "Your IP <br> " + validDestinationIP;
 	for (var i = 0; i < 32; i++) {
 		invalidIPs.push(randomIP());
 	} 
 	chooseIP(0);
 	choosePort(0);
+	tickDown();
 	document.getElementById("portrait").className = "packageEntrance";
 };
 
@@ -203,18 +205,30 @@ function stage4check(button) {
 	}
 }
 
+function tickDown() {
+	var start = parseInt(document.getElementById("healthBar").style.width.slice(0, -1));
+	var end_width = start - 1;
+	document.documentElement.style.setProperty('--my-start-width', start + "%");
+	document.documentElement.style.setProperty('--my-end-width', end_width + "%");
+	document.getElementById("healthBar").className = "healthAlter";
+	setTimeout(function() {
+		document.getElementById("healthBar").className = "";
+		document.getElementById("healthBar").style.width = end_width + "%";
+		tickDown();
+	}, 1000)
+}
+
 function healthChange(result) {
-	var start = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--my-start-width').slice(0, -1));
+	var start = parseInt(document.getElementById("healthBar").style.width.slice(0, -1));
 	if (result) {
 		var end_width = start + 10;
-		document.documentElement.style.setProperty('--my-end-width', end_width + "%");
-		document.getElementById("healthBar").className = "healthAlter";
 	}
 	else {
 		var end_width = start - 10;
-		document.documentElement.style.setProperty('--my-end-width', end_width + "%");
-		document.getElementById("healthBar").className = "healthAlter";
 	}
+	document.documentElement.style.setProperty('--my-start-width', start + "%");
+	document.documentElement.style.setProperty('--my-end-width', end_width + "%");
+	document.getElementById("healthBar").className = "healthAlter";
 	if (end_width <= 15) {
 		document.getElementById("healthBar").style.backgroundColor = "red";
 	}
@@ -228,7 +242,6 @@ function healthChange(result) {
 		if (end_width > 0) {
 			document.getElementById("healthBar").className = "";
 			document.getElementById("healthBar").style.width = end_width + "%";
-			document.documentElement.style.setProperty('--my-start-width', end_width + "%");
 		}
 		else {
 			document.getElementById("healthBar").style.width = end_width + "%";
