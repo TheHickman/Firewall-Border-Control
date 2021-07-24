@@ -22,7 +22,9 @@ window.onload = function() {
 };
 
 function gameOver() {
-	document.getElementById("warningTextDisplay").innerHTML = "GAME OVER"
+	document.getElementById("warningTextDisplay").innerHTML = "GAME OVER";
+	document.getElementById("accept").disabled = true; 
+	document.getElementById("deny").disabled = true; 
 }
 
 
@@ -105,6 +107,8 @@ function animation(status) {
 	setTimeout(function(){
 		document.getElementById("portrait").className = className;
 		setTimeout(function(){
+			chooseIP(score);
+			choosePort(score);
 			document.getElementById("box").src = "img/" + imgSource + ".png";
 			document.getElementById("portrait").className = "packageEntrance";
 		}, 350)
@@ -209,7 +213,12 @@ function stage4check(button) {
 function healthChange(result) {
 	var start = parseInt(document.getElementById("healthBar").style.width.slice(0, -1));
 	if (result) {
-		var end_width = start + 10;
+		if (start < 100) {
+			var end_width = start + 10;
+		}
+		else {
+			var end_width = start;
+		}
 	}
 	else {
 		var end_width = start - 10;
@@ -239,14 +248,13 @@ function healthChange(result) {
 }
 
 function check(button) {
-	var currentScore = score
-	if (currentScore >= 15) {
+	if (score >= 15) {
 		result = stage4check(button)
 	}
-	else if (currentScore >= 10) {
+	else if (score >= 10) {
 		result = stage3check(button)
 	}
-	else if (currentScore >= 5) {
+	else if (score >= 5) {
 		result = stage2check(button);
 	}
 	else {
@@ -254,15 +262,10 @@ function check(button) {
 	}
 	if (result) {
 		document.getElementById("warningTextDisplay").innerHTML = "";
-		currentScore ++;
+		score ++;
 		healthChange(result);
 	}
 	else {
 		healthChange(result);
 	}
-	setTimeout(function() {
-		chooseIP(currentScore);
-		choosePort(currentScore);
-	}, 350)
-	score = currentScore
 }

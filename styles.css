@@ -40,15 +40,17 @@ img{
 	overflow: hidden;
 	width: 90vw;
 	margin: auto;
+	color: white;
 }
 
 #healthBar {
 	text-align: center;
 	overflow: hidden;
 	margin: auto;
-	background-color: lime;
 	float: left;
-	width = 100%;
+	height: 5%;
+	display: block;
+	background-color: lime;
 }
 
 #main {
