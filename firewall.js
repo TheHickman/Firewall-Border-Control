@@ -7,9 +7,9 @@ var validDestinationPort = get_random(portList);
 removeItem(validDestinationPort)
 var validSourcePort = get_random(portList);
 removeItem(validSourcePort);
+var score = 0;
 
 window.onload = function() {
-	document.getElementById("healthBarText").innerHTML = 0;
 	document.getElementById("healthBar").style.width = "100%";
 	document.getElementById("yourIPText").innerHTML = "Your IP <br> " + validDestinationIP;
 	for (var i = 0; i < 32; i++) {
@@ -17,7 +17,7 @@ window.onload = function() {
 	} 
 	chooseIP(0);
 	choosePort(0);
-	tickDown();
+	//tickDown();
 	document.getElementById("portrait").className = "packageEntrance";
 };
 
@@ -205,18 +205,6 @@ function stage4check(button) {
 	}
 }
 
-function tickDown() {
-	var start = parseInt(document.getElementById("healthBar").style.width.slice(0, -1));
-	var end_width = start - 1;
-	document.documentElement.style.setProperty('--my-start-width', start + "%");
-	document.documentElement.style.setProperty('--my-end-width', end_width + "%");
-	document.getElementById("healthBar").className = "healthAlter";
-	setTimeout(function() {
-		document.getElementById("healthBar").className = "";
-		document.getElementById("healthBar").style.width = end_width + "%";
-		tickDown();
-	}, 1000)
-}
 
 function healthChange(result) {
 	var start = parseInt(document.getElementById("healthBar").style.width.slice(0, -1));
@@ -245,14 +233,13 @@ function healthChange(result) {
 		}
 		else {
 			document.getElementById("healthBar").style.width = end_width + "%";
-			document.getElementById("healthBarText").innerHTML = "";
 			gameOver();
 		}
 	}, 350)
 }
 
 function check(button) {
-	currentScore = document.getElementById("healthBarText").innerHTML
+	var currentScore = score
 	if (currentScore >= 15) {
 		result = stage4check(button)
 	}
@@ -277,5 +264,5 @@ function check(button) {
 		chooseIP(currentScore);
 		choosePort(currentScore);
 	}, 350)
-	document.getElementById("healthBarText").innerHTML = currentScore;
+	score = currentScore
 }
