@@ -53,8 +53,13 @@ function chooseIP(score) {
 		document.getElementById("sourceIP").innerHTML = get_random(invalidIPs);
 	}
 	if (score == 5) {
+		document.getElementById("allowFrom").style.opacity = 0;
 		document.getElementById("rule2").innerHTML = "Allow packets from ";
 		document.getElementById("allowFrom").innerHTML = validSourceIP;
+		document.getElementById("rule2").className = "rulesFade";
+		setTimeout(function() {
+			document.getElementById("allowFrom").className = "rulesFade";
+		}, 450);
 	}
 }
 
@@ -72,12 +77,22 @@ function choosePort(score) {
 		document.getElementById("destinationPort").innerHTML = get_random(portList);
 	}
 	if (score == 10) {
+		document.getElementById("allowFromPort").style.opacity = 0;
 		document.getElementById("rule3").innerHTML = "Allow packets from the port ";
 		document.getElementById("allowFromPort").innerHTML = validSourcePort;
+		document.getElementById("rule3").className = "rulesFade";
+		setTimeout(function() {
+			document.getElementById("allowFromPort").className = "rulesFade";
+		}, 450);
 	}
 	if (score == 15) {
+		document.getElementById("allowToPort").style.opacity = 0;
 		document.getElementById("rule4").innerHTML = "Allow packets going to port ";
 		document.getElementById("allowToPort").innerHTML = validDestinationPort;
+		document.getElementById("rule4").className = "rulesFade";
+		setTimeout(function() {
+			document.getElementById("allowToPort").className = "rulesFade";
+		}, 450);
 	}
 }
 

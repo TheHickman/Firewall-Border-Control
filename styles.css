@@ -63,7 +63,7 @@ img{
 
 
 #contentContainer {
-	background-color: lightblue;
+	background: linear-gradient(black, white, black);
 	border-right: 0.1vw outset red;
 	text-align: center;
 	overflow: hidden;
@@ -81,6 +81,17 @@ img{
 #buttons {
 	background-color: lightblue;
 	border-top: 0.1vw outset red;
+	height: 100%;
+}
+
+#accept {
+	position: relative;
+	left: -40%;
+}
+
+#deny {
+	position: relative;
+	left: 40%;
 }
 
 #rules {
@@ -111,29 +122,38 @@ img{
 
 #warningText {
 	position: relative;
-	color: black;
+	color: red;
 }
 
 .packageEntrance {
 	animation-name: entrance;
 	animation-duration: 0.4s;	
+	animation-fill-mode: forwards;  
 }
 
 .packageAccept {
 	animation-name: accept;
-	animation-duration: 0.4s;	
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;  
 }
 
 .packageDeny {
 	animation-name: deny;
-	animation-duration: 0.4s;	
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;  	
 }
 
 .healthAlter {
 	animation-name: change;
 	animation-duration: 0.4s;	
+	animation-fill-mode: forwards;  
 }
 
+.rulesFade {
+	animation-name: fadeIn;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+}
 
 @keyframes entrance {
 	0% {left: -100%;}
@@ -153,6 +173,11 @@ img{
 @keyframes change {
     0% { width: var(--my-start-width); }
     100% { width: var(--my-end-width); }
+}
+
+@keyframes fadeIn {
+	0% {opacity:0;}
+	100% {opacity:1;}
 }
 
 
