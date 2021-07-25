@@ -51,6 +51,7 @@ img{
 	height: 5%;
 	display: block;
 	background-color: lime;
+	width: 100%;
 }
 
 #main {

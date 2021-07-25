@@ -17,7 +17,7 @@ window.onload = function() {
 	} 
 	chooseIP(0);
 	choosePort(0);
-	//tickDown();
+	tickDown();
 	document.getElementById("portrait").className = "packageEntrance";
 };
 
@@ -209,6 +209,20 @@ function stage4check(button) {
 	}
 }
 
+function tickDown() {
+	var start = parseInt(document.getElementById("healthBar").style.width.slice(0, -1));
+	var end_width = start - 1;
+	document.getElementById("healthBar").style.width = end_width + "%";
+	setTimeout(function(){
+		if (end_width > 0) {
+			tickDown();
+		}
+		else {
+			gameOver();
+		}
+	}, 400)
+}
+
 
 function healthChange(result) {
 	var start = parseInt(document.getElementById("healthBar").style.width.slice(0, -1));
@@ -236,12 +250,11 @@ function healthChange(result) {
 		document.getElementById("healthBar").style.backgroundColor = "lime";
 	}
 	setTimeout(function(){
+		document.getElementById("healthBar").style.width = end_width + "%";
 		if (end_width > 0) {
 			document.getElementById("healthBar").className = "";
-			document.getElementById("healthBar").style.width = end_width + "%";
 		}
 		else {
-			document.getElementById("healthBar").style.width = end_width + "%";
 			gameOver();
 		}
 	}, 350)
