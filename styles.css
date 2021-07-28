@@ -89,12 +89,18 @@ img{
 
 #accept {
 	position: relative;
-	left: -40%;
+	background-color: lime;
+	width: 20%;
+	height: 10%;
+	float: left;
 }
 
 #deny {
 	position: relative;
-	left: 40%;
+	background-color: red;
+	width: 20%;
+	height: 10%;
+	float: right;
 }
 
 #rules {

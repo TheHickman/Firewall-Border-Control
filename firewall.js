@@ -213,6 +213,15 @@ function tickDown() {
 	var start = parseInt(document.getElementById("healthBar").style.width.slice(0, -1));
 	var end_width = start - 1;
 	document.getElementById("healthBar").style.width = end_width + "%";
+	if (end_width <= 15) {
+		document.getElementById("healthBar").style.backgroundColor = "red";
+	}
+	else if (end_width <= 45) {
+		document.getElementById("healthBar").style.backgroundColor = "yellow";
+	}
+	else {
+		document.getElementById("healthBar").style.backgroundColor = "lime";
+	}
 	setTimeout(function(){
 		if (end_width > 0) {
 			tickDown();
