@@ -1,6 +1,6 @@
 body {
-	background-color: powderblue;
-	font-family: monospace;
+    background-color: white;
+    font-family: monospace;
 }
 
 :root {
@@ -14,169 +14,173 @@ img{
 }
 
 #header {
-	border: 0.1vw outset red;
-	background-color: lightblue;
-	text-align: center;
-	overflow: hidden;
-	width: 90vw;
-	height: 4vw;
-	margin: auto;
+    background-color: lightblue;
+    text-align: center;
+    overflow: hidden;
+    width: 90vw;
+    height: 4vw;
+    margin: auto;
 }
 
 #yourIP {
-	background-color: pink;
-	text-align: center;
-	width: 100%;
-	float: left;
-	vertical-align: top;
+    background-color: #6610f2;
+    text-align: center;
+    color: white;
+    width: 100%;
+    float: left;
+    vertical-align: top;
+    height: 100%;
 }
 
 #healthBarContainer {
-	border-left: 0.1vw outset red;
-	border-right: 0.1vw outset red;
-	border-bottom: 0.1vw outset red;
-	background-color: black;
-	text-align: center;
-	overflow: hidden;
-	width: 90vw;
-	margin: auto;
-	color: white;
+    border-left: 0.1vw outset white;
+    border-right: 0.1vw outset white;
+    background-color: black;
+    text-align: center;
+    overflow: hidden;
+    width: 90vw;
+    margin: auto;
+    color: white;
 }
 
 #healthBar {
-	text-align: center;
-	overflow: hidden;
-	margin: auto;
-	float: left;
-	height: 5%;
-	display: block;
-	background-color: lime;
-	width: 100%;
+    text-align: center;
+    overflow: hidden;
+    margin: auto;
+    float: left;
+    height: 5%;
+    display: block;
+    background-color: lime;
+    width: 100%;
 }
 
 #main {
-	border-bottom: 0.1vw outset red;
-	border-left: 0.1vw outset red;
-	border-right: 0.1vw outset red;
-	background-color: lightblue;
-	overflow: hidden;
-	width: 90vw;
-	margin: auto;
+    overflow: hidden;
+    width: 90vw;
+    margin: auto;
 }
 
 
 #contentContainer {
-	background: linear-gradient(black, white, black);
-	border-right: 0.1vw outset red;
-	text-align: center;
-	overflow: hidden;
-	width: 75%;
-	height: 80%;
-	float: left;
+    background: linear-gradient(black, white, black);
+    text-align: center;
+    overflow: hidden;
+    width: 75%;
+    height: 80%;
+    float: left;
 }
 
 #portrait {
-	height: 80%;
+    height: 80%;
     position: relative;
     overflow: hidden;
 }
 
 #buttons {
-	background-color: lightblue;
-	border-top: 0.1vw outset red;
-	height: 100%;
+    background-color: black;
+    height: 100%;
 }
 
 #accept {
-	position: relative;
-	background-color: lime;
-	width: 20%;
-	height: 10%;
-	float: left;
+    position: relative;
+    background-color: lime;
+    width: 20%;
+    height: 10%;
+    float: left;
+    color: white;
+    padding: 1%;
+    border: 0.5% solid #000;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
 }
 
 #deny {
-	position: relative;
-	background-color: red;
-	width: 20%;
-	height: 10%;
-	float: right;
+    position: relative;
+    background-color: red;
+    width: 20%;
+    height: 10%;
+    float: right;
+    color: white;
+    padding: 1%;
+    border: 0.5% solid #000;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
 }
 
 #rules {
-	background-color: black;
-	overflow: hidden;
-	height: 80%;
-	width: 24.93%;
-	float: left;
-	position: relative;
+    background-color: black;
+    overflow: hidden;
+    height: 80%;
+    width: 24.93%;
+    float: left;
+    position: relative;
 }
 
 #rulesText {
-	position: absolute;
-	color: lime;
+    position: absolute;
+    color: lime;
 }
 
 #packageTagText {
-	position: absolute;
-	top: 40%;
-	right: 47%;
-	color: black;
-	text-align: left;
-	background-color: white;
-	padding: 1%;
-	border: 0.1vw outset black;
+    position: absolute;
+    top: 40%;
+    right: 47%;
+    color: black;
+    text-align: left;
+    background-color: white;
+    padding: 1%;
+    border: 0.1vw outset black;
 }
 
 
 #warningText {
-	position: relative;
-	color: red;
+    position: relative;
+    color: red;
 }
 
 .packageEntrance {
-	animation-name: entrance;
-	animation-duration: 0.4s;	
-	animation-fill-mode: forwards;  
+    animation-name: entrance;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
 }
 
 .packageAccept {
-	animation-name: accept;
-	animation-duration: 0.4s;
-	animation-fill-mode: forwards;  
+    animation-name: accept;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
 }
 
 .packageDeny {
-	animation-name: deny;
-	animation-duration: 0.4s;
-	animation-fill-mode: forwards;  	
+    animation-name: deny;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
 }
 
 .healthAlter {
-	animation-name: change;
-	animation-duration: 0.4s;	
-	animation-fill-mode: forwards;  
+    animation-name: change;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
 }
 
 .rulesFade {
-	animation-name: fadeIn;
-	animation-duration: 0.5s;
-	animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes entrance {
-	0% {left: -100%;}
-	100% {left: 0%;}
+    0% {left: -100%;}
+    100% {left: 0%;}
 }
 
 @keyframes accept {
-	0% {left: 0%;}
-	100% {left: 100%;}
+    0% {left: 0%;}
+    100% {left: 100%;}
 }
 
 @keyframes deny {
-	0% {left: 0%;}
-	100% {left: -100%;}
+    0% {left: 0%;}
+    100% {left: -100%;}
 }
 
 @keyframes change {
@@ -185,8 +189,8 @@ img{
 }
 
 @keyframes fadeIn {
-	0% {opacity:0;}
-	100% {opacity:1;}
+    0% {opacity:0;}
+    100% {opacity:1;}
 }
 
 
