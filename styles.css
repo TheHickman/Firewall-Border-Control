@@ -33,14 +33,12 @@ img{
 }
 
 #healthBarContainer {
-    border-left: 0.1vw outset white;
-    border-right: 0.1vw outset white;
     background-color: black;
     text-align: center;
     overflow: hidden;
     width: 90vw;
-    margin: auto;
     color: white;
+	margin: auto;
 }
 
 #healthBar {
@@ -74,6 +72,7 @@ img{
     height: 80%;
     position: relative;
     overflow: hidden;
+	display: block;
 }
 
 #buttons {
@@ -87,6 +86,58 @@ img{
     width: 20%;
     height: 10%;
     float: left;
+    color: white;
+    padding: 1%;
+    border: 0.5% solid #000;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+}
+
+#score1 {
+	position: relative;
+    background-color: purple;
+    width: 20%;
+    height: 10%;
+    float: left;
+    color: white;
+    padding: 1%;
+    border: 0.5% solid #000;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+}
+
+#score2 {
+	position: relative;
+    background-color: orange;
+    width: 20%;
+    height: 10%;
+    float: left;
+    color: white;
+    padding: 1%;
+    border: 0.5% solid #000;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+}
+
+#score3 {
+    position: relative;
+    background-color: pink;
+    width: 20%;
+    height: 10%;
+    float: right;
+    color: white;
+    padding: 1%;
+    border: 0.5% solid #000;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+}
+
+#score4 {
+    position: relative;
+    background-color: cyan;
+    width: 20%;
+    height: 10%;
+    float: right;
     color: white;
     padding: 1%;
     border: 0.5% solid #000;
@@ -111,7 +162,7 @@ img{
     background-color: black;
     overflow: hidden;
     height: 80%;
-    width: 24.93%;
+    width: 25%;
     float: left;
     position: relative;
 }

@@ -8,6 +8,7 @@ removeItem(validDestinationPort)
 var validSourcePort = get_random(portList);
 removeItem(validSourcePort);
 var score = 0;
+var mistakes = 0;
 
 window.onload = function() {
 	document.getElementById("healthBar").style.width = "100%";
@@ -25,6 +26,16 @@ function gameOver() {
 	document.getElementById("warningTextDisplay").innerHTML = "GAME OVER";
 	document.getElementById("accept").disabled = true; 
 	document.getElementById("deny").disabled = true; 
+	console.log(score);
+	console.log(mistakes);
+	document.getElementById("accept").id = "score1";
+	document.getElementById("score1").innerHTML = "That Didn't Make Sense, Take Me Back!";
+	document.getElementById("deny").id = "score2";
+	document.getElementById("score2").innerHTML = "That Didn't Make Sense, Let's Move On!";
+	document.getElementById("placeHolder0").id = "score4";
+	document.getElementById("score4").innerHTML = "That Made Sense, Let's Move On";
+	document.getElementById("placeHolder1").id = "score3";
+	document.getElementById("score3").innerHTML = "That Made Sense, Take Me Back!";
 }
 
 
@@ -229,7 +240,7 @@ function tickDown() {
 		else {
 			gameOver();
 		}
-	}, 400)
+	}, 300)
 }
 
 
@@ -288,6 +299,7 @@ function check(button) {
 		healthChange(result);
 	}
 	else {
+		mistakes ++;
 		healthChange(result);
 	}
 }
