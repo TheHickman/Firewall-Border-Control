@@ -9,6 +9,7 @@ var validSourcePort = get_random(portList);
 removeItem(validSourcePort);
 var score = 0;
 var mistakes = 0;
+var uniqueID = Math.floor(Math.random() * Date.now())
 
 window.onload = function() {
 	document.getElementById("healthBar").style.width = "100%";
@@ -24,10 +25,6 @@ window.onload = function() {
 
 function gameOver() {
 	document.getElementById("warningTextDisplay").innerHTML = "GAME OVER";
-	document.getElementById("accept").disabled = true; 
-	document.getElementById("deny").disabled = true; 
-	console.log(score);
-	console.log(mistakes);
 	document.getElementById("accept").id = "score1";
 	document.getElementById("score1").innerHTML = "That Didn't Make Sense, Take Me Back!";
 	document.getElementById("deny").id = "score2";
@@ -36,6 +33,14 @@ function gameOver() {
 	document.getElementById("score4").innerHTML = "That Made Sense, Let's Move On";
 	document.getElementById("placeHolder1").id = "score3";
 	document.getElementById("score3").innerHTML = "That Made Sense, Take Me Back!";
+	document.getElementById("score1").setAttribute('onclick','print_points(1)')
+	document.getElementById("score2").setAttribute('onclick','print_points(2)')
+	document.getElementById("score3").setAttribute('onclick','print_points(3)')
+	document.getElementById("score4").setAttribute('onclick','print_points(4)')
+}
+
+function print_points(points) {
+	console.log(points, score, mistakes, uniqueID);
 }
 
 
