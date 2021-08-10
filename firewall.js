@@ -13,7 +13,7 @@ var uniqueID = Math.floor(Math.random() * Date.now())
 
 window.onload = function() {
 	document.getElementById("healthBar").style.width = "100%";
-	document.getElementById("yourIPText").innerHTML = "Your IP <br> " + validDestinationIP;
+	document.getElementById("yourIPText").innerHTML = "Your IP: " + validDestinationIP;
 	for (var i = 0; i < 32; i++) {
 		invalidIPs.push(randomIP());
 	} 

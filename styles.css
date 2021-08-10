@@ -173,14 +173,16 @@ img{
 }
 
 #packageTagText {
-    position: absolute;
-    top: 40%;
-    right: 47%;
+    position: relative;
+    bottom: 85%;
     color: black;
     text-align: left;
     background-color: white;
     padding: 1%;
     border: 0.1vw outset black;
+	margin: 0 auto;
+	right: 5%;
+	width: 20%;
 }
 
 
