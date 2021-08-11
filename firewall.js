@@ -17,8 +17,8 @@ window.onload = function() {
 	for (var i = 0; i < 32; i++) {
 		invalidIPs.push(randomIP());
 	} 
-	chooseIP(0);
-	choosePort(0);
+	chooseIP(0, 0.5);
+	choosePort(0, 0.5);
 	tickDown();
 	document.getElementById("portrait").className = "packageEntrance";
 };
@@ -59,14 +59,14 @@ function get_random (list) {
 	return list[Math.floor((Math.random()*list.length))];
 }
 
-function chooseIP(score) {
-	if (Math.random() < 0.5) {
+function chooseIP(score, P) {
+	if (Math.random() < P) {
 		document.getElementById("destinationIP").innerHTML = validDestinationIP;
 	}
 	else {
 		document.getElementById("destinationIP").innerHTML = get_random(invalidIPs)
 	}
-	if (Math.random() < 0.7) {
+	if (Math.random() < P) {
 		document.getElementById("sourceIP").innerHTML = validSourceIP;
 	}
 	else {
@@ -74,7 +74,7 @@ function chooseIP(score) {
 	}
 	if (score == 5) {
 		document.getElementById("allowFrom").style.opacity = 0;
-		document.getElementById("rule2").innerHTML = "Allow packets from ";
+		document.getElementById("rule2").innerHTML = "Only allow packets from ";
 		document.getElementById("allowFrom").innerHTML = validSourceIP;
 		document.getElementById("rule2").className = "rulesFade";
 		setTimeout(function() {
@@ -83,14 +83,14 @@ function chooseIP(score) {
 	}
 }
 
-function choosePort(score) {
-	if (Math.random() < 0.5) {
+function choosePort(score, P) {
+	if (Math.random() < P) {
 		document.getElementById("sourcePort").innerHTML = validSourcePort;
 	}
 	else {
 		document.getElementById("sourcePort").innerHTML = get_random(portList)
 	}
-	if (Math.random() < 0.7) {
+	if (Math.random() < P) {
 		document.getElementById("destinationPort").innerHTML = validDestinationPort;
 	}
 	else {
@@ -98,7 +98,7 @@ function choosePort(score) {
 	}
 	if (score == 10) {
 		document.getElementById("allowFromPort").style.opacity = 0;
-		document.getElementById("rule3").innerHTML = "Allow packets from the port ";
+		document.getElementById("rule3").innerHTML = "Only allow packets from the port ";
 		document.getElementById("allowFromPort").innerHTML = validSourcePort;
 		document.getElementById("rule3").className = "rulesFade";
 		setTimeout(function() {
@@ -107,7 +107,7 @@ function choosePort(score) {
 	}
 	if (score == 15) {
 		document.getElementById("allowToPort").style.opacity = 0;
-		document.getElementById("rule4").innerHTML = "Allow packets going to port ";
+		document.getElementById("rule4").innerHTML = "Only allow packets going to port ";
 		document.getElementById("allowToPort").innerHTML = validDestinationPort;
 		document.getElementById("rule4").className = "rulesFade";
 		setTimeout(function() {
@@ -123,8 +123,10 @@ function animation(status) {
 	setTimeout(function(){
 		document.getElementById("portrait").className = className;
 		setTimeout(function(){
-			chooseIP(score);
-			choosePort(score);
+			var num_rules = 1 + Math.floor(score/4);
+			var P = 1 - Math.pow(0.5, 1/num_rules);
+			chooseIP(score, P);
+			choosePort(score, P);
 			document.getElementById("box").src = "img/" + imgSource + ".png";
 			document.getElementById("portrait").className = "packageEntrance";
 		}, 350)
@@ -287,10 +289,10 @@ function healthChange(result) {
 
 function check(button) {
 	if (score >= 15) {
-		result = stage4check(button)
+		result = stage4check(button);
 	}
 	else if (score >= 10) {
-		result = stage3check(button)
+		result = stage3check(button);
 	}
 	else if (score >= 5) {
 		result = stage2check(button);
