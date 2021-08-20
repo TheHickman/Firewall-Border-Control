@@ -60,13 +60,13 @@ function get_random (list) {
 }
 
 function chooseIP(score, P) {
-	if (Math.random() < P) {
+	if (Math.random() > P) {
 		document.getElementById("destinationIP").innerHTML = validDestinationIP;
 	}
 	else {
 		document.getElementById("destinationIP").innerHTML = get_random(invalidIPs)
 	}
-	if (Math.random() < P) {
+	if (Math.random() > P) {
 		document.getElementById("sourceIP").innerHTML = validSourceIP;
 	}
 	else {
@@ -84,13 +84,13 @@ function chooseIP(score, P) {
 }
 
 function choosePort(score, P) {
-	if (Math.random() < P) {
+	if (Math.random() > P) {
 		document.getElementById("sourcePort").innerHTML = validSourcePort;
 	}
 	else {
 		document.getElementById("sourcePort").innerHTML = get_random(portList)
 	}
-	if (Math.random() < P) {
+	if (Math.random() > P) {
 		document.getElementById("destinationPort").innerHTML = validDestinationPort;
 	}
 	else {
